@@ -18,7 +18,7 @@ integrante 2
 - **Correo electrónico:** 23308060610600@cetis61.edu.mx
 - **Especialidad:** Programación  
 - **Institución:** CETis 61
-  <img src="static/img/yesenia.jpeg" alt="Mi Foto" width="200">
+<img src="static/img/yesenia.jpeg" alt="Mi Foto" width="200">
 
 
 # ANÁLISIS DE MERCADO Y ENCUESTA PARA APLICACIÓN NUTRICIONAL
