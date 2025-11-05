@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% block contenido %}
+
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Recetas Saludables </h1>
+
+  <div class="row g-4">
+
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm p-3">
+        <img src="{{ url_for('static', filename='img/caprese.jpeg') }}" class="card-img-top rounded mb-3" alt="Ensalada Caprese">
+        <h4>Ensalada Caprese con un Toque Mediterráneo</h4>
+        <p>¿Buscas una entrada ligera y refrescante? Esta ensalada es tu mejor opción.</p>
+        <h6>Ingredientes:</h6>
+        <ul>
+          <li>2 tomates grandes, cortados en rodajas</li>
+          <li>125g de mozzarella fresca, cortada en rodajas</li>
+          <li>1/4 taza de hojas de albahaca fresca</li>
+          <li>2 cucharadas de aceite de oliva virgen extra</li>
+          <li>1 cucharada de vinagre balsámico</li>
+          <li>Sal y pimienta al gusto</li>
+        </ul>
+        <h6>Preparación:</h6>
+        <ol>
+          <li>Coloca las rodajas de tomate y mozzarella en un plato alternándolas.</li>
+          <li>Cubre con las hojas de albahaca.</li>
+          <li>Rocía con aceite de oliva y vinagre balsámico.</li>
+          <li>Sazona con sal y pimienta. ¡Sirve y disfruta!</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm p-3">
+        <img src="{{ url_for('static', filename='img/pollo.jpeg') }}" class="card-img-top rounded mb-3" alt="Pollo al horno">
+        <h4>Pollo al Horno con Papas y Espárragos</h4>
+        <p>Una opción completa y deliciosa para una cena saludable.</p>
+        <h6>Ingredientes:</h6>
+        <ul>
+          <li>1 kg de pechuga de pollo en cubos</li>
+          <li>500g de papas en cubos</li>
+          <li>200g de espárragos</li>
+          <li>2 cucharadas de aceite de oliva</li>
+          <li>1 cucharadita de pimentón dulce</li>
+          <li>Sal y pimienta al gusto</li>
+        </ul>
+        <h6>Preparación:</h6>
+        <ol>
+          <li>Mezcla el pollo con aceite, pimentón, sal y pimienta.</li>
+          <li>Agrega las papas y espárragos.</li>
+          <li>Hornea a 200°C por 30 minutos o hasta que el pollo esté cocido.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm p-3">
+        <img src="{{ url_for('static', filename='img/lentejas.jpeg') }}" class="card-img-top rounded mb-3" alt="Lentejas estofadas">
+        <h4>Lentejas Estofadas con Verduras</h4>
+        <p>Una receta llena de fibra y proteínas.</p>
+        <h6>Ingredientes:</h6>
+        <ul>
+          <li>1 taza de lentejas</li>
+          <li>1 cebolla picada</li>
+          <li>2 zanahorias picadas</li>
+          <li>1 pimiento rojo picado</li>
+          <li>4 tazas de caldo de verduras</li>
+          <li>1 cucharadita de comino</li>
+        </ul>
+        <h6>Preparación:</h6>
+        <ol>
+          <li>Sofríe la cebolla, zanahoria y pimiento.</li>
+          <li>Agrega lentejas, caldo y comino.</li>
+          <li>Cocina 30 minutos o hasta que estén tiernas.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm p-3">
+        <img src="{{ url_for('static', filename='img/salmon.jpeg') }}" class="card-img-top rounded mb-3" alt="Salmón al horno">
+        <h4>Salmón al Horno con Espinacas</h4>
+        <p>Rico en Omega-3 y fácil de preparar.</p>
+        <h6>Ingredientes:</h6>
+        <ul>
+          <li>2 filetes de salmón</li>
+          <li>1 taza de espinacas frescas</li>
+          <li>1 cucharada de aceite de oliva</li>
+          <li>Jugo de 1/2 limón</li>
+          <li>Sal y pimienta al gusto</li>
+        </ul>
+        <h6>Preparación:</h6>
+        <ol>
+          <li>Precalienta el horno a 200°C.</li>
+          <li>Coloca el salmón en una bandeja con espinacas.</li>
+          <li>Agrega aceite, limón, sal y pimienta.</li>
+          <li>Hornea 15–20 minutos.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm p-3">
+        <img src="{{ url_for('static', filename='img/batido.jpeg') }}" class="card-img-top rounded mb-3" alt="Batido verde">
+        <h4>Batido Verde Detox</h4>
+        <p>Perfecto para empezar el día con energía.</p>
+        <h6>Ingredientes:</h6>
+        <ul>
+          <li>1 taza de espinacas</li>
+          <li>1/2 taza de piña</li>
+          <li>1/2 taza de agua</li>
+          <li>1 cucharada de chía</li>
+        </ul>
+        <h6>Preparación:</h6>
+        <ol>
+          <li>Licúa todos los ingredientes hasta obtener una textura suave.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card h-100 shadow-sm p-3">
+        <img src="{{ url_for('static', filename='img/crema.jpeg') }}" class="card-img-top rounded mb-3" alt="Crema de calabaza">
+        <h4>Crema de Calabaza</h4>
+        <p>Una sopa cremosa y saludable para el otoño.</p>
+        <h6>Ingredientes:</h6>
+        <ul>
+          <li>1 kg de calabaza en cubos</li>
+          <li>1 cebolla picada</li>
+          <li>4 tazas de caldo de verduras</li>
+          <li>1/2 taza de nata vegetal (opcional)</li>
+        </ul>
+        <h6>Preparación:</h6>
+        <ol>
+          <li>Sofríe la cebolla con un poco de aceite.</li>
+          <li>Agrega la calabaza y el caldo.</li>
+          <li>Cocina a fuego lento hasta que esté tierna.</li>
+          <li>Licúa y agrega nata (opcional).</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
