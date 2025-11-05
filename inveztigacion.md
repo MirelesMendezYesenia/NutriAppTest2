@@ -1,13 +1,35 @@
+# -vida-sana
+## práctica para saber usar GitHub
+
+# 📄 Datos Generales
+
+## integrantes
+integrante 1
+- **Nombre completo:** Carvajal Bustillos Gael Alan  
+- **Edad:** 17  
+- **Correo electrónico:** 23308060610312@cetis61.edu.mx  
+- **Especialidad:** Programación  
+- **Institución:** CETis 61  
+<img src="static/img/gael.jpeg" alt="Mi Foto" width="200">
+
+integrante 2
+- **Nombre completo:** Mireles Mendez Yesenia 
+- **Edad:** 17  
+- **Correo electrónico:** 23308060610600@cetis61.edu.mx
+- **Especialidad:** Programación  
+- **Institución:** CETis 61  
+
+
 # ANÁLISIS DE MERCADO Y ENCUESTA PARA APLICACIÓN NUTRICIONAL
 
 ## 1. Introducción
-
 El presente proyecto tiene como propósito analizar el mercado actual de aplicaciones nutricionales y recopilar información directa de usuarios potenciales para identificar oportunidades de mejora e innovación.  
 A partir de los resultados, se propone el desarrollo de una aplicación o sitio web llamado **“Vida Sana”**, enfocado en promover una alimentación equilibrada y consciente.
 
 El sitio **“Vida Sana”** busca informar, orientar y educar a los usuarios sobre la importancia de mantener una dieta saludable para mejorar la calidad de vida y prevenir enfermedades relacionadas con la mala nutrición.  
 Será un espacio confiable y atractivo para estudiantes, jóvenes y familias, donde podrán encontrar información clara, consejos prácticos, videos educativos y recetas nutritivas fáciles de preparar.  
 De esta manera, se pretende motivar a los usuarios a aplicar los conocimientos adquiridos en su vida cotidiana, fomentando una cultura de bienestar y autocuidado.
+
 
 ## 2. Objetivos de la investigación
 
@@ -20,8 +42,8 @@ Realizar un análisis completo de aplicaciones nutricionales existentes y recopi
 - Establecer criterios para el diseño de una aplicación nutricional educativa, práctica y accesible.  
 - Proponer oportunidades de mejora basadas en los hallazgos obtenidos.
 
-## 3. Metodología utilizada
 
+## 3. Metodología utilizada
 La investigación se divide en dos partes principales:
 
 ### Parte 1: Análisis de aplicaciones existentes
@@ -34,7 +56,7 @@ Para cada una se analizarán los siguientes aspectos:
 - Características innovadoras  
 
 ### Parte 2: Diseño y aplicación de encuesta
-Se elaborará una encuesta de mínimo 15 preguntas (mezclando abiertas y cerradas) con el objetivo de conocer:
+Se elaboró una encuesta de mínimo 15 preguntas (mezclando abiertas y cerradas) con el objetivo de conocer:
 - Perfil de los usuarios potenciales (edad, objetivos, experiencia con apps de nutrición)  
 - Funcionalidades más valoradas  
 - Problemas comunes con apps existentes  
@@ -45,7 +67,6 @@ Los resultados serán analizados mediante gráficos y tablas comparativas para o
 
 
 ## 4. Análisis de Aplicaciones Existentes
-
 Se evaluaron tres aplicaciones principales del mercado con base en los criterios mencionados.  
 Cada análisis incluyó descripción general, características destacadas, ventajas, desventajas y capturas de pantalla de apoyo.
 
@@ -67,35 +88,136 @@ Las preguntas abordaron temas como hábitos actuales, uso de apps de nutrición,
 Se esperaba obtener información sobre las funcionalidades más valoradas (como el registro fácil de alimentos, recomendaciones personalizadas y recetas sencillas), así como los principales problemas que enfrentan los usuarios (interfaz complicada, datos inexactos o exceso de publicidad).  
 Los resultados se presentaron mediante gráficos y un análisis interpretativo.
 
-### Hallazgos principales
-De acuerdo con los objetivos del sitio **“Vida Sana”**, se buscó crear una plataforma intuitiva, educativa y accesible, que combine teoría y práctica a través de recursos visuales, recetas, consejos y videos.
+---
+
+## 📊 Gráficas de la Encuesta
+
+![Gráfica 1](static/img/foto2.png)
+![Gráfica 2](static/img/foto3.png)
+![Gráfica 3](static/img/foto4.png)
+![Gráfica 4](static/img/foto5.png)
+![Gráfica 5](static/img/foto6.png)
+![Gráfica 6](static/img/foto7.png)
+![Gráfica 7](static/img/foto8.png)
+![Gráfica 8](static/img/foto9.png)
+![Gráfica 9](static/img/foto10.png)
+![Gráfica 10](static/img/foto11.png)
+![Gráfica 11](static/img/foto12.png)
+![Gráfica 12](static/img/foto13.png)
 
 
-## 6. Propuesta del sitio “Vida Sana”
+## ¿Qué tipo de funciones innovadoras o diferentes le gustaría ver en una app de nutrición?
 
-### Estructura general del sitio
-El sitio contará con cinco secciones principales:
-1. **Inicio:** Presentación del sitio, imagen principal y lema motivacional (“Cuida tu cuerpo, alimenta tu vida”).  
-2. **¿Qué es la nutrición?:** Explicación sencilla sobre los nutrientes esenciales y la importancia de una dieta balanceada, apoyada con infografías del “Plato del Bien Comer”.  
-3. **Consejos saludables:** Recomendaciones prácticas para mejorar hábitos (hidratarse, dormir bien, reducir azúcar, hacer ejercicio). Incluirá videos educativos e infografías.  
-4. **Recetas nutritivas:** Recetas sencillas, económicas y saludables con imágenes, modo de preparación y opción de guardado o impresión.  
-5. **Contacto:** Formulario para enviar sugerencias o dudas, enlaces a redes sociales y breve descripción del equipo desarrollador.
+**24 respuestas**
 
-### Diseño visual
-- **Colores:** tonos verdes, blancos y naranjas suaves (asociados con naturaleza y bienestar).  
-- **Tipografía:** Arial, Poppins o Open Sans para una lectura clara.  
-- **Diseño:** limpio, minimalista y adaptable (responsive).  
-- **Estructura:** encabezado fijo y pie de página con enlaces rápidos.
+- Simples  
+- Personalización de recetas con mis ingredientes disponibles  
+- Tutoriales de alimentos  
+- Con música  
+- Escáner de alimento  
+- Fáciles e ilustrativas  
+- Videos de recetas  
+- No sé  
+- Un sistema que monitoree mis cantidades de agua consumida  
+- Mida grasa visceral  
+- Una imagen de cómo va el progreso  
+- Prácticas  
+- Un menú práctico  
+- Recetas  
+- Que lleguen notificaciones informando progresos y frases motivadoras  
+- Un RPG táctico por turnos  
+- Decirle a la app cuántos vasos de agua he tomado y que me diga cuántos me faltan  
+- Sistema de recompensas  
+- Que incluya menú para niños y adultos  
+- Que te den ánimo  
+- Comparaciones mensuales sobre los avances  
+- Que cada receta muestre sus beneficios  
+- Expertos hablando del tema  
+- Fácil de entender  
 
-### Tecnologías a utilizar
-- **HTML5:** estructura de contenido.  
-- **CSS3:** estilos visuales y animaciones.  
-- **Python (Flask):** manejo de formularios y lógica del servidor.  
-- **Bootstrap:** diseño adaptable y profesional.
+
+## Si pudieras diseñar una función “perfecta” para ti, ¿cómo sería?
+
+**24 respuestas**
+
+- No sé  
+- Simple y entendible  
+- Que se pueda usar sin Internet  
+- Atractiva  
+- Para poder llevar un control de tus metas físicas  
+- Que dé recordatorios  
+- Sencilla de usar y práctica  
+- Que analice hábitos alimenticios  
+- Que sea gratuita  
+- Práctica, fácil de usar  
+- Sencilla, sin tanto color  
+- Simple  
+- Opciones prácticas  
+- Personalización  
+- Actividades dinámicas para motivar  
+- Un RPG táctico por turnos  
+- Que dé logros según los objetivos cumplidos  
+- Que recompense por cada objetivo alcanzado  
+- Recetas fáciles y rápidas  
+- Crear un avatar basado en altura y peso que cambie con el progreso  
+- Que cuente las calorías  
+- En videos  
+- Fácil y rápida  
 
 
-## 7. Conclusiones y Oportunidades
+## ¿Cuál ha sido tu peor experiencia con una app de nutrición?
 
+**24 respuestas**
+
+- Nunca la he usado  
+- Anuncios invasivos  
+- No he tenido  
+- Lentas  
+- Que no son gratuitas  
+- Nunca he usado una  
+- Información no confiable  
+- Que sea de paga  
+- Ofrecer diagnóstico o menú solo tras pagar  
+- Muy lenta y pesada  
+- Muy complicada  
+- Textos muy largos  
+- Ninguna  
+- Datos incorrectos que causan estrés  
+- Falta de modo RPG táctico  
+- Que sea de paga (repetido por varios usuarios)  
+- Ingredientes no disponibles en su país  
+- Metas o instrucciones poco realistas  
+- Poco entendible  
+
+
+## ¿Qué aspecto consideras que las apps actuales no logran cubrir bien?
+
+**24 respuestas**
+
+- Personalización  
+- Solo funcionan con conexión a Internet  
+- No muestran lo negativo de los alimentos  
+- Todo bien  
+- No planean la alimentación según el estilo de vida  
+- No consideran alergias  
+- Demasiadas microtransacciones y anuncios  
+- Falta de programas personalizados  
+- Recetas con ingredientes muy caros  
+- Falta de practicidad  
+- Demasiada complejidad  
+- Información incierta o sin respaldo de nutricionistas  
+- No tienen un RPG táctico por turnos  
+- Pocas funciones útiles  
+- Muchas microtransacciones o anuncios  
+- No incluyen a toda la familia  
+- Ingredientes poco accesibles  
+- Planes alimenticios demasiado específicos  
+- No explican beneficios de los ingredientes  
+- Exceso de anuncios  
+- Falta de rapidez y simplicidad  
+
+
+## 6. Conclusiones y Oportunidades
 El análisis del mercado y las encuestas permitieron comprender mejor las necesidades reales de los usuarios y detectar áreas de mejora en las aplicaciones existentes.  
 Entre las oportunidades principales destacan:
 
@@ -104,48 +226,3 @@ Entre las oportunidades principales destacan:
 - Desarrollar una interfaz limpia, atractiva y fácil de usar desde cualquier dispositivo.
 
 En síntesis, el proyecto **“Vida Sana”** representa una oportunidad para combinar tecnología, educación y salud en una herramienta accesible, útil y moderna que promueva la nutrición consciente y el bienestar integral.
-
-
-##  Estadísticas de la encuesta
-
-### ¿Qué tipo de funciones innovadoras o diferentes le gustaría ver en una app de nutrición?
-Algunas respuestas destacadas:
-- Simples  
-- Personalización de recetas con mis ingredientes disponibles  
-- Tutoriales de alimentos  
-- Con música  
-- Escáner de alimento  
-- Fáciles e ilustrativas  
-- Videos de recetas  
-- Sistema que monitoree vasos de agua consumidos  
-- Medición de grasa visceral  
-- Comparaciones mensuales de avances  
-- Notificaciones motivadoras  
-- Sistema de recompensas  
-- Menú para niños y adultos  
-- Beneficios por receta  
-- Expertos hablando del tema  
-
-### ¿Cuál ha sido tu peor experiencia con una app de nutrición?
-- Anuncios invasivos  
-- Lentitud  
-- Falta de funciones gratuitas  
-- Información no confiable  
-- Diagnósticos de pago  
-- Interfaces complicadas  
-- Datos incorrectos  
-- Falta de accesibilidad o ingredientes locales  
-
-### ¿Qué aspecto consideras que las apps actuales no logran cubrir bien?
-- Falta de personalización  
-- Exceso de anuncios o microtransacciones  
-- Recetas costosas o poco accesibles  
-- Ausencia de nutricionistas o fuentes confiables  
-- Enfoque limitado solo en pérdida de peso  
-- Falta de funciones familiares o educativas  
-
-
-**Conclusión final:**  
-Las respuestas reflejan la necesidad de una app más **simple, gratuita, confiable y práctica**, con funciones personalizadas y materiales accesibles.  
-El sitio **“Vida Sana”** busca cubrir precisamente esas carencias, ofreciendo una experiencia educativa y motivadora para todos los usuarios.
-
