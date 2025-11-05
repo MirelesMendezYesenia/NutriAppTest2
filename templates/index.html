@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<div class="container mt-5">
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <h1>Aurora Health</h1>
+      <p class="mt-3">En Aurora Health encontrarás una plataforma diseñada para ayudarte a mejorar tu bienestar a través de una alimentación equilibrada y saludable. Aquí podrás descubrir información sobre nutrientes esenciales, planes de alimentación personalizados, recetas nutritivas y consejos para mantener un estilo de vida saludable.</p>
+      <p>Esta sección te ofrece una introducción general a todo lo que podrás explorar dentro de la aplicación: desde el seguimiento de tus hábitos alimenticios hasta herramientas que te permitirán conocer mejor tus necesidades nutricionales.</p>
+      <p>Además, encontrarás imágenes ilustrativas, infografías y recomendaciones prácticas para inspirarte en tu camino hacia una mejor salud</p>
+      <p>Nuestro propósito es brindarte una vista general clara y motivadora antes de que te adentres en las demás secciones de la aplicación.</p>
+    </div>
+
+    <div class="col-md-6 text-center">
+        <img src="{{ url_for('static', filename='img/nutricion1.jpeg') }}" alt="Nutrición saludable" class="rounded shadow-sm"style="width: 500px; height: auto;"/>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
