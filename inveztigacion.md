@@ -10,14 +10,15 @@ integrante 1
 - **Correo electrónico:** 23308060610312@cetis61.edu.mx  
 - **Especialidad:** Programación  
 - **Institución:** CETis 61  
-<img src="static/img/gael.jpeg" alt="Mi Foto" width="200">
+<img src="static/img/Gael1.jpeg" alt="Mi Foto" width="200">
 
 integrante 2
 - **Nombre completo:** Mireles Mendez Yesenia 
 - **Edad:** 17  
 - **Correo electrónico:** 23308060610600@cetis61.edu.mx
 - **Especialidad:** Programación  
-- **Institución:** CETis 61  
+- **Institución:** CETis 61
+  <img src="static/img/yesenia" alt="Mi Foto" width="200">
 
 
 # ANÁLISIS DE MERCADO Y ENCUESTA PARA APLICACIÓN NUTRICIONAL
