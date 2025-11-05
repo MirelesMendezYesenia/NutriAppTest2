@@ -2,7 +2,7 @@
 
 # Objetivo de una Aplicación Web
 
-El objetivo de una aplicación web es proporcionar acceso a servicios o funcionalidades a través de un navegador, sin necesidad de instalar software adicional. Sus objetivos principales incluyen:
+Nuestro objetivo con esta aplicación es mejorarla progresivamente e incluir nuevas funciones con cada actualización y mejorar todos los aspectos posibles 
 
 1. **Accesibilidad**: Permitir el uso desde cualquier lugar con conexión a Internet.
 2. **Funcionalidad**: Ofrecer herramientas específicas como gestión de información, pagos, o colaboración.
