@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block contenido %}
+
+<div class="container mt-5">
+  <div class="row align-items-center">
+    
+    <div class="col-md-6">
+      <h1 class="mb-4 text-success">Sobre Nosotros </h1>
+      <p>
+        Somos dos estudiantes de preparatoria apasionados por el bienestar y la tecnología.
+        Nuestro propósito con esta aplicación es ofrecerte una herramienta práctica, moderna y confiable
+        que te ayude a mejorar tu salud y tus hábitos alimenticios de una manera sencilla y accesible.
+      </p>
+      <p>
+        Nos hemos esforzado en que Aurora Health no sea solo una aplicación más, 
+        sino una experiencia que te motive a cuidar de ti mismo, a conocer mejor tu cuerpo y 
+        a mantener una vida equilibrada.
+      </p>
+      <p>
+        Queremos que cada sección —ya sea de recetas, consejos o información nutricional— te sea de utilidad 
+        en tu día a día, ayudándote a tomar decisiones saludables y conscientes.
+      </p>
+      <p>
+        Esta aplicación representa el esfuerzo, la dedicación y la creatividad de dos jóvenes 
+        que buscan aportar algo positivo a la comunidad.
+      </p>
+      <p class="mb-4">
+        Esperamos que disfrutes explorándola tanto como nosotros disfrutamos desarrollarla, 
+        y que se convierta en una guía confiable para que continúes tu vida con seguridad, 
+        bienestar y salud. 
+      </p>
+    </div>
+
+        <div class="col-md-6 text-center">
+      <img src="{{ url_for('static', filename='img/nutricion2.jpeg') }}"  class="img-fluid rounded shadow-sm"style="width: 300px; height: auto;">
+    </div>
+
+     <h5>Hecho por Carvajal Bustillos Gael Alan y Mireles Mendez Yesenia</h5>
+
+  </div>
+</div>
+
+{% endblock %}
