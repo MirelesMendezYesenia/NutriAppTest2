@@ -27,7 +27,13 @@
                         <a class="nav-link" href="/recetas">Recetas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/registro">Registro</a>
+                        <a class="nav-link" href="/registro">
+                            {%if not session.get("usuario_nombre")%}
+                            registro
+                            {% else%}
+                            cerrar Session
+                            {% endif  %}
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/login">Iniciar Sesion</a>

@@ -48,6 +48,11 @@ def registrame():
 def login():
     return render_template("login.html")
 
+@app.route("/logout")
+def logout():
+    session.clear()
+    flash("Sesión cerrada correctamente", "success")
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(debug=True)
