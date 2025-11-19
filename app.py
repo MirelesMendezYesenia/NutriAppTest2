@@ -55,5 +55,18 @@ def logout():
     flash("Sesión cerrada correctamente", "success")
     return redirect(url_for('index'))
 
+@app.route("/calculadoraGCT")
+def gct():
+    return render_template("calculadoraGCT.html")
+
+@app.route("/calculadoraIMC")
+def imc():
+    return render_template("calculadoraIMC.html")
+
+@app.route("/calculadoraTMB")
+def tmb():
+    return render_template("calculadoraTMB.html")
+
+
 if __name__ == '__main__':
     app.run(debug=True)

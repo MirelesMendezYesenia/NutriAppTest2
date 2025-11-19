@@ -36,7 +36,22 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/login">Iniciar Sesion</a>
+                        <a class="nav-link" href="/login">Iniciar Sesion
+                            {%if not session.get("usuario_nombre")%}
+                            iniciar sesion
+                            {% else%}
+                            cerrar Session
+                            {% endif  %}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/calculadoraGCT">Calculadora de </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/recetas">Recetas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/recetas">Recetas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/sobre">Sobre Nosotros</a>
