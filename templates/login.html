@@ -1,6 +1,44 @@
 {% extends "base.html" %}
 
 {% block contenido %}
-<p>Hola </p>
-<h1><i>Si ya tienes cuenta inicia sesión</i></h1>
+    <div class="d-flex flex-column align-items-center py-4" style="background-color: #d8b5f7ff;">
+    <div class="p-4 rounded shadow-sm" style="max-width: 400px; width: 100%; background-color: #8ba9e7ff">
+        <h2 class="mb-3 text-center text-dark">Iniciar sesión</h2>
+        <p class="fs-6 text-center text-dark">Accede a tu cuenta</p>
+
+        <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        </div>
+
+
+        <form method="POST" action="{{ url_for('login') }}">
+        <div class="mb-3">
+            <input type="email" class="form-control" name="email" required placeholder="Correo electrónico" value="{{ request.form.get('email', '') }}">
+        </div>
+        
+        <div class="mb-3">
+            <input type="password" class="form-control" name="password" required placeholder="Contraseña">
+        </div>
+
+        <div class="col-md-6">
+            <input type="text" class="form-control" id="nombreCompleto" name="nombreCompleto" placeholder="Nombre" required value="{{ request.form.get('nombreCompleto', '') }}">
+        </div>
+
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+        </div>
+        </form>
+
+        <p class="text-center mt-3">¿No tienes cuenta? <a href="{{ url_for('registro') }}">Regístrate aquí</a></p>
+    </div>
+    </div>
 {% endblock %}
