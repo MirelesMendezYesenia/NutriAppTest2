@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<div class="d-flex flex-column align-items-center py-4" style="background-color: #d8b5f7ff;">
+    <div class="p-4 rounded shadow-sm" style="max-width: 400px; width: 100%; background-color: #8ba9e7ff">
+        <h2 class="mb-3 text-center text-dark"><i>ANALISIS DE RECETAS Y PLATILLOS</i></h2>
+        
+        <form>      
+        <div class="mb-3">
+            <input type="text" class="form-control" name="ingredientes" required placeholder="ingredientes">
+        </div>
+
+        <div class="md-6">
+            <input type="number" class="form-control" name="cantidad" placeholder="CantidadDeIngrediente" required>
+        </div>
+        <div class="md-6">
+            <input type="number" class="form-control" name="porciones" placeholder="porciones" required>
+        </div>
+
+        </form>
+
+    </div>
+    </div>
+{% endblock %}

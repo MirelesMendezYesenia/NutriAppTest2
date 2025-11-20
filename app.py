@@ -75,5 +75,9 @@ def pci():
 def macro():
     return render_template("calculadoraMACRO.html")
 
+@app.route("/analisis")
+def analisis():
+    return render_template("analisis.html")
+
 if __name__ == '__main__':
     app.run(debug=True)
