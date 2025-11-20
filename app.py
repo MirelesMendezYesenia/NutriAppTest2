@@ -67,6 +67,13 @@ def imc():
 def tmb():
     return render_template("calculadoraTMB.html")
 
+@app.route("/calculadoraPCI")
+def pci():
+    return render_template("calculadoraPCI.html")
+
+@app.route("/calculadoraMACRO")
+def macro():
+    return render_template("calculadoraMACRO.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
