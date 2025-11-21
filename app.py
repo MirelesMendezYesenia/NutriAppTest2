@@ -4,6 +4,13 @@ import requests
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
+USUARIOS_REGISTRADOS = {
+    'admin@correo.com': {
+        'password': 'admin123', 
+        'nombre': 'administrador',
+    }
+}
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -45,8 +52,26 @@ def registrame():
     return render_template("registro.html")
 
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
+    if request.method == "POST":
+        email = request.form.get('email')
+        password = request.form.get('password')
+
+        if not email or not password:
+            flash("Por favor, ingresa tu email y contraseña", "error")
+        elif email not in USUARIOS_REGISTRADOS:
+            flash("Correo no registrado", "error")
+        elif USUARIOS_REGISTRADOS[email]['password'] != password:
+            flash("Contraseña incorrecta", "error")
+        else:
+            session['usuario_email'] = email
+            session['usuario_nombre'] = USUARIOS_REGISTRADOS[email]['nombre']
+            session['logeando'] = True
+
+            flash("Inicio de sesión exitoso", "success")
+            return redirect(url_for('bienvenido'))
+
     return render_template("login.html")
 
 @app.route("/logout")
@@ -59,13 +84,33 @@ def logout():
 def gct():
     return render_template("calculadoraGCT.html")
 
-@app.route("/calculadoraIMC")
+@app.route("/calculadoraIMC", methods=["GET", "POST"])
 def imc():
+    if request.method == "POST":
+        try:
+            peso = float(request.form["peso"])
+            estatura = float(request.form["estatura"]) / 100  
+
+            imc = peso / (estatura * estatura)
+            imc = round(imc, 2)
+
+            return render_template("calculadoraIMC.html", resultado_imc=imc)
+        
+        except:
+            return render_template("calculadoraIMC.html", error="Datos inválidos")
     return render_template("calculadoraIMC.html")
+
+@app.route("/calculadoraGCT")
+def gct():
+    return render_template("calculadoraGCT.html")
+
+@app.route("/calculadoraTMB", methods=["GET", "POST"])
+def tmb():
+    return render_template("calculadoraTMB.html")
 
 @app.route("/calculadoraTMB")
 def tmb():
-    return render_template("calculadoraTMB.html")
+            return render_template("calculadoraTMB.html")
 
 @app.route("/calculadoraPCI")
 def pci():
