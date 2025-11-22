@@ -100,17 +100,26 @@ def imc():
             return render_template("calculadoraIMC.html", error="Datos inválidos")
     return render_template("calculadoraIMC.html")
 
-@app.route("/calculadoraGCT")
-def gct():
-    return render_template("calculadoraGCT.html")
+
+from flask import render_template, request
 
 @app.route("/calculadoraTMB", methods=["GET", "POST"])
 def tmb():
-    return render_template("calculadoraTMB.html")
+    resultado = None
 
-@app.route("/calculadoraTMB")
-def tmb():
-            return render_template("calculadoraTMB.html")
+    if request.method == "POST":
+        peso = float(request.form["peso"])          
+        estatura = float(request.form["estatura"])  
+        edad = int(request.form["edad"])
+        genero = request.form["genero"]
+
+        if genero == "male":
+            resultado = (10 * peso) + (6.25 * estatura) - (5 * edad) + 5
+        else:  
+            resultado = (10 * peso) + (6.25 * estatura) - (5 * edad) - 161
+
+    return render_template("calculadoraTMB.html", resultado=resultado)
+
 
 @app.route("/calculadoraPCI")
 def pci():
