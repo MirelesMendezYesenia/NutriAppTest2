@@ -5,26 +5,50 @@
     <div class="p-4 rounded shadow-sm" style="max-width: 400px; width: 100%; background-color: #8ba9e7ff">
         <h2 class="mb-3 text-center text-dark"><i>CALCULADORA DE GASTO CALÓRICO TOTAL</i></h2>
         
-        <form>
-            <div class="mb-3">
-            <input type="number" class="form-control" name="peso" required placeholder="peso">
-        </div>
+        <form action="/calculadoraGCT" method="POST">
+    <div class="mb-3">
+        <input type="number" class="form-control" name="peso" required placeholder="Peso (kg)">
+    </div>
 
-        <div class="md-3">
-            <input type="number" class="form-control" name="estatura" placeholder="estatura" required>
-        </div>
-        <div class="mb-3">
-            <input type="number" class="form-control" name="edad" required placeholder="Edad">
-        </div>
-        <div class="mb-3">
-                <select name="gender" id="gender" class="form-select" required>
-                    <option value="female">Msculino</option>
-                    <option value="male">Femenino</option>
-                </select>
+    <div class="mb-3">
+        <input type="number" class="form-control" name="estatura" required placeholder="Estatura (cm)">
+    </div>
+
+    <div class="mb-3">
+        <input type="number" class="form-control" name="edad" required placeholder="Edad">
+    </div>
+
+    <div class="mb-3">
+        <select name="gender" class="form-select" required>
+            <option value="male">Masculino</option>
+            <option value="female">Femenino</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <select name="actividad" class="form-select" required>
+            <option disabled selected>Nivel de actividad</option>
+            <option value="1.2">Sedentario</option>
+            <option value="1.375">Ligero</option>
+            <option value="1.55">Moderado</option>
+            <option value="1.725">Intenso</option>
+            <option value="1.9">Muy intenso</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-dark w-100">Calcular GCT</button>
+</form>
+
+{% if resultado %}
+<div class="alert alert-success mt-3 text-center">
+    Tu gasto calórico total es: <strong>{{ resultado }} kcal/día</strong>
+</div>
+{% endif %}
+        {% if error %}
+            <div class="alert alert-danger mt-3 text-center">
+                {{ error }}
             </div>
-            
-            <button type="submit" class="btn btn-dark w-100">Calcular GCT</button>
-        </form>
+        {% endif %}
 
     </div>
     </div>

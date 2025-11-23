@@ -80,9 +80,26 @@ def logout():
     flash("Sesión cerrada correctamente", "success")
     return redirect(url_for('index'))
 
-@app.route("/calculadoraGCT")
+@app.route("/calculadoraGCT", methods=["GET", "POST"])
 def gct():
-    return render_template("calculadoraGCT.html")
+    resultado = None
+
+    if request.method == "POST":
+        peso = float(request.form["peso"])
+        estatura = float(request.form["estatura"])
+        edad = int(request.form["edad"])
+        genero = request.form["gender"]
+        actividad = float(request.form["actividad"])
+
+        if genero == "male":
+            tmb = (10 * peso) + (6.25 * estatura) - (5 * edad) + 5
+        else:
+            tmb = (10 * peso) + (6.25 * estatura) - (5 * edad) - 161
+
+        resultado = round(tmb * actividad)
+
+    return render_template("calculadoraGCT.html", resultado=resultado)
+
 
 @app.route("/calculadoraIMC", methods=["GET", "POST"])
 def imc():
@@ -125,9 +142,23 @@ def tmb():
 def pci():
     return render_template("calculadoraPCI.html")
 
-@app.route("/calculadoraMACRO")
+@app.route("/calculadoraMACRO", methods=["GET", "POST"])
 def macro():
-    return render_template("calculadoraMACRO.html")
+    proteinas = grasas = carbohidratos = None
+
+    if request.method == "POST":
+        calorias = float(request.form["calorias"])
+
+        pct_prot = 0.30
+        pct_grasa = 0.25
+        pct_carb = 0.45
+
+        proteinas = round((calorias * pct_prot) / 4)
+        grasas = round((calorias * pct_grasa) / 9)
+        carbohidratos = round((calorias * pct_carb) / 4)
+
+    return render_template("calculadoraMACRO.html",proteinas=proteinas,grasas=grasas,carbohidratos=carbohidratos)
+
 
 @app.route("/analisis")
 def analisis():
