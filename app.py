@@ -1,4 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
+from flask_mysqldb import MYSQL
+from werkzeug.security import generate_password_hash
+import re
 import requests
 
 app = Flask(__name__)
