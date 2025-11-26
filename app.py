@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-from flask_mysqldb import MYSQL
+from flask_mysqldb import MySQL
 from werkzeug.security import generate_password_hash
 import re
 import requests
+
+app.config['MYSQL_HOST'] = 'localhost'
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
