@@ -31,7 +31,7 @@ def crear_tabla():
 
 def email_existe(email):
     try:
-        cursor = mysql.connection.cursor()
+        
         cursor.execute("SELECT id FROM usuarios WHERE email = %s", (email,))
         resultado = cursor.fetchone()
         cursor.close()
@@ -65,7 +65,14 @@ def registrar_usuario(nombre, apellidos, email, password):
         print(f"Error al registrar usuario: {e}")
         return False
 
-
+def obtener_usuario_por_email(email):
+    try:
+        cursor = mysql.connection.cursor()
+        cursor.execute('SELECT * FROM usuarios WHERE email = %s', (email,))
+        return cursor.fetchone e:
+    except Exception as e:
+        print(f"Error obteniendo usuario: {e}")
+        return None
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
