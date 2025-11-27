@@ -10,6 +10,19 @@ app.secret_key = "your_secret_key"
 def index():
     return render_template("index.html")
 
+@app.route("/recetas")
+def recetas():
+    return render_template("recetas.html")
+
+@app.route("/sobre")
+def sobre():
+    return render_template("sobre.html")
+
+@app.route("/registro", methods=["GET"])
+def registro():
+    return render_template("registro.html")
+
+
 @app.route("/registro", methods=["GET", "POST"])
 def registro():
     if request.method == "POST":
