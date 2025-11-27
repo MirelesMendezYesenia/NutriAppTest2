@@ -40,16 +40,31 @@ def email_existe(email):
         print(f"Error verificando email: {e}")
         return False
 
-def registrar_usuario(nombre, email, password):
+def registrar_usuario(nombre, apellidos, email, password):
     try:
-        cursor = mysql.connection.cursor()
-  
+        if email_existe(email):
+            print("El email ya está registrado.")
+            return False
+
         hashed_password = generate_password_hash(password)
 
-        cursor.execute('''
-             INSERT INTO users(nombre, email, password)
+        cursor = mysql.connection.cursor()
 
-        ''')
+        cursor.execute('''
+            INSERT INTO usuarios (nombre, apellidos, email, password)
+            VALUES (%s, %s, %s, %s, %s, %s)
+        ''', (nombre, apellidos, email, hashed_password, fecha_nacimiento, genero))
+
+        mysql.connection.commit()
+        cursor.close()
+
+        print("Usuario registrado correctamente.")
+        return True
+
+    except Exception as e:
+        print(f"Error al registrar usuario: {e}")
+        return False
+
 
 
 app = Flask(__name__)
