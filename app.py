@@ -39,7 +39,18 @@ def email_existe(email):
     except Exception as e:
         print(f"Error verificando email: {e}")
         return False
-        
+
+def registrar_usuario(nombre, email, password):
+    try:
+        cursor = mysql.connection.cursor()
+  
+        hashed_password = generate_password_hash(password)
+
+        cursor.execute('''
+             INSERT INTO users(nombre, email, password)
+
+        ''')
+
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
