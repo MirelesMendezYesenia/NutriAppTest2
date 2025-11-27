@@ -1,157 +1,67 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 from flask_mysqldb import MySQL
-from werkzeug.security import generate_password_hash
-import re
-import requests
-
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'usuarios_db'
-
-mysql = MySQL(app)
-
-def crear_tabla():
-    cursor = mysql.connection.cursor()
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS usuarios (
-            id INT PRIMARY KEY AUTO_INCREMENT,
-            email VARCHAR(50) UNIQUE NOT NULL,
-            pass_hash VARCHAR(255) NOT NULL,
-            nombre VARCHAR(50) NOT NULL,
-            apellidos VARCHAR(50) NOT NULL,
-            fecha_nacimiento DATE,
-            genero ENUM('masculino', 'femenino', 'otro'),
-            verificado BOOLEAN DEFAULT FALSE,
-            fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
-                ON UPDATE CURRENT_TIMESTAMP
-        );
-    """)
-
-def email_existe(email):
-    try:
-        
-        cursor.execute("SELECT id FROM usuarios WHERE email = %s", (email,))
-        resultado = cursor.fetchone()
-        cursor.close()
-        return resultado is not None
-    except Exception as e:
-        print(f"Error verificando email: {e}")
-        return False
-
-def registrar_usuario(nombre, apellidos, email, password):
-    try:
-        if email_existe(email):
-            print("El email ya está registrado.")
-            return False
-
-        hashed_password = generate_password_hash(password)
-
-        cursor = mysql.connection.cursor()
-
-        cursor.execute('''
-            INSERT INTO usuarios (nombre, apellidos, email, password)
-            VALUES (%s, %s, %s, %s, %s, %s)
-        ''', (nombre, apellidos, email, hashed_password, fecha_nacimiento, genero))
-
-        mysql.connection.commit()
-        cursor.close()
-
-        print("Usuario registrado correctamente.")
-        return True
-
-    except Exception as e:
-        print(f"Error al registrar usuario: {e}")
-        return False
-
-def obtener_usuario_por_email(email):
-    try:
-        cursor = mysql.connection.cursor()
-        cursor.execute('SELECT * FROM usuarios WHERE email = %s', (email,))
-        return cursor.fetchone e:
-    except Exception as e:
-        print(f"Error obteniendo usuario: {e}")
-        return None
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'
+app.secret_key = "your_secret_key"
 
-USUARIOS_REGISTRADOS = {
-    'admin@correo.com': {
-        'password': 'admin123', 
-        'nombre': 'administrador',
-    }
-}
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
-@app.route("/recetas")
-def recetas():
-    return render_template("recetas.html")
-
-@app.route("/sobre")
-def sobre():
-    return render_template("sobre.html")
-
-@app.route("/registro", methods=["GET"])
+@app.route("/registro", methods=["GET", "POST"])
 def registro():
-    return render_template("registro.html")
-
-@app.route("/registrame", methods=["GET", "POST"])
-def registrame():
     if request.method == "POST":
-        nombreCompleto = request.form["nombreCompleto"]
+        nombre = request.form["nombre"]
+        apellidos = request.form["apellidos"]
         email = request.form["email"]
         password = request.form["password"]
         confirmPassword = request.form["confirmPassword"]
 
-        error = None
-        if not nombreCompleto or not email or not password or not confirmPassword:
-            error = "Todos los campos son obligatorios"
-        
-        if password != confirmPassword:
-            error = "La contraseña no coincide"
-        
-        if error:
-            flash(error, 'error')
+        if not nombre or not apellidos or not email or not password:
+            flash("Todos los campos son obligatorios", "error")
             return render_template("registro.html")
+
+        if password != confirmPassword:
+            flash("Las contraseñas no coinciden", "error")
+            return render_template("registro.html")
+
+        if registrar_usuario(nombre, apellidos, email, password):
+            flash("¡Registro exitoso!", "success")
+            return redirect(url_for("index"))
         else:
-            flash(f"¡Registro exitoso para el usuario: {nombreCompleto}!", 'success')
-            return redirect(url_for('index'))
+            flash("Error registrando usuario", "error")
 
     return render_template("registro.html")
-
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        email = request.form.get('email')
-        password = request.form.get('password')
+        email = request.form["email"]
+        password = request.form["password"]
 
-        if not email or not password:
-            flash("Por favor, ingresa tu email y contraseña", "error")
-        elif email not in USUARIOS_REGISTRADOS:
+        cursor = mysql.connection.cursor()
+        cursor.execute("SELECT email, pass_hash, nombre FROM usuarios WHERE email = %s", (email,))
+        usuario = cursor.fetchone()
+        cursor.close()
+
+        if usuario is None:
             flash("Correo no registrado", "error")
-        elif USUARIOS_REGISTRADOS[email]['password'] != password:
-            flash("Contraseña incorrecta", "error")
-        else:
-            session['usuario_email'] = email
-            session['usuario_nombre'] = USUARIOS_REGISTRADOS[email]['nombre']
-            session['logeando'] = True
+            return render_template("login.html")
 
-            flash("Inicio de sesión exitoso", "success")
-            return redirect(url_for('bienvenido'))
+        if not check_password_hash(usuario[1], password):
+            flash("Contraseña incorrecta", "error")
+            return render_template("login.html")
+
+        session["usuario_email"] = usuario[0]
+        session["usuario_nombre"] = usuario[2]
+        session["logeando"] = True
+
+        flash("Inicio de sesión exitoso", "success")
+        return redirect(url_for("index"))
 
     return render_template("login.html")
-
-@app.route("/logout")
-def logout():
-    session.clear()
-    flash("Sesión cerrada correctamente", "success")
-    return redirect(url_for('index'))
 
 @app.route("/calculadoraGCT", methods=["GET", "POST"])
 def gct():
@@ -236,6 +146,12 @@ def macro():
 @app.route("/analisis")
 def analisis():
     return render_template("analisis.html")
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    flash("Sesión cerrada correctamente", "success")
+    return redirect(url_for("index"))
 
 if __name__ == '__main__':
     app.run(debug=True)
