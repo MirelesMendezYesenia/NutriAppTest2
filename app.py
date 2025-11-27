@@ -5,7 +5,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
 
-
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -22,31 +21,30 @@ def sobre():
 def registro():
     return render_template("registro.html")
 
-
-@app.route("/registro", methods=["GET", "POST"])
-def registro():
+@app.route("/registrame", methods=["GET", "POST"])
+def registrame():
     if request.method == "POST":
-        nombre = request.form["nombre"]
-        apellidos = request.form["apellidos"]
+        nombreCompleto = request.form["nombreCompleto"]
         email = request.form["email"]
         password = request.form["password"]
         confirmPassword = request.form["confirmPassword"]
 
-        if not nombre or not apellidos or not email or not password:
-            flash("Todos los campos son obligatorios", "error")
-            return render_template("registro.html")
+        error = None
+        if not nombreCompleto or not email or not password or not confirmPassword:
+            error = "Todos los campos son obligatorios"
 
         if password != confirmPassword:
-            flash("Las contraseñas no coinciden", "error")
-            return render_template("registro.html")
+            error = "La contraseña no coincide"
 
-        if registrar_usuario(nombre, apellidos, email, password):
-            flash("¡Registro exitoso!", "success")
-            return redirect(url_for("index"))
+        if error:
+            flash(error, 'error')
+            return render_template("registro.html")
         else:
-            flash("Error registrando usuario", "error")
+            flash(f"¡Registro exitoso para el usuario: {nombreCompleto}!", 'success')
+            return redirect(url_for('index'))
 
     return render_template("registro.html")
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
