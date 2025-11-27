@@ -12,12 +12,34 @@ app.config['MYSQL_DB'] = 'usuarios_db'
 mysql = MySQL(app)
 
 def crear_tabla():
+    cursor = mysql.connection.cursor()
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS usuarios (
+            id INT PRIMARY KEY AUTO_INCREMENT,
+            email VARCHAR(50) UNIQUE NOT NULL,
+            pass_hash VARCHAR(255) NOT NULL,
+            nombre VARCHAR(50) NOT NULL,
+            apellidos VARCHAR(50) NOT NULL,
+            fecha_nacimiento DATE,
+            genero ENUM('masculino', 'femenino', 'otro'),
+            verificado BOOLEAN DEFAULT FALSE,
+            fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+                ON UPDATE CURRENT_TIMESTAMP
+        );
+    """)
+
+def email_existe(email):
     try:
         cursor = mysql.connection.cursor()
-        cursor.execute('''
-
-
-        ''')
+        cursor.execute("SELECT id FROM usuarios WHERE email = %s", (email,))
+        resultado = cursor.fetchone()
+        cursor.close()
+        return resultado is not None
+    except Exception as e:
+        print(f"Error verificando email: {e}")
+        return False
+        
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
