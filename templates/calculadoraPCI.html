@@ -3,21 +3,39 @@
 {% block contenido %}
 <div class="d-flex flex-column align-items-center py-4" style="background-color: #d8b5f7ff;">
     <div class="p-4 rounded shadow-sm" style="max-width: 400px; width: 100%; background-color: #8ba9e7ff">
-        <h2 class="mb-3 text-center text-dark"><i>CALCULADORA DE PESO COLPORAL IDEAL</i></h2>
+        <h2 class="mb-3 text-center text-dark"><i>CALCULADORA DE PESO CORPORAL IDEAL</i></h2>
         
-        <form>      
-        <div class="mb-3">
-            <input type="number" class="form-control" name="peso" required placeholder="peso">
-        </div>
+        <form method="POST" action="{{ url_for('pci') }}">
+            <div class="mb-3">
+                <input type="number" class="form-control" name="peso" required placeholder="Peso">
+            </div>
 
-        <div class="md-6">
-            <input type="number" class="form-control" name="estatura" placeholder="estatura" required>
-        </div>
+            <div class="mb-3">
+                <input type="number" class="form-control" name="estatura" placeholder="Estatura" required>
+            </div>
 
-        
+            <div class="mb-3">
+                <select name="genero" class="form-select" required>
+                    <option value="hombre">Masculino</option>
+                    <option value="mujer">Femenino</option>
+                </select>
+            </div>
+            
             <button type="submit" class="btn btn-dark w-100">Calcular PCI</button>
         </form>
 
+        {% if pci_result %}
+        <div class="alert alert-success mt-4">
+            <h3>Tu Peso Corporal Ideal es: {{ pci_result }} kg</h3>
+        </div>
+        {% endif %}
+
+        {% if error_message %}
+        <div class="alert alert-danger mt-4">
+            <p>{{ error_message }}</p>
+        </div>
+        {% endif %}
+
     </div>
-    </div>
+</div>
 {% endblock %}

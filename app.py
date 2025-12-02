@@ -207,8 +207,28 @@ def tmb():
 
     return render_template("calculadoraTMB.html", resultado=resultado)
 
-@app.route("/calculadoraPCI")
+@app.route("/calculadoraPCI", methods=["GET", "POST"])
 def pci():
+    if request.method == "POST":
+        try:
+            peso = float(request.form["peso"])
+            estatura = float(request.form["estatura"])
+            genero = request.form["genero"]  
+            
+            if genero == "hombre":
+                pci = (estatura - 100) - ((estatura - 150) / 4)
+            elif genero == "mujer":
+                pci = (estatura - 100) - ((estatura - 150) / 2.5)
+            else:
+                error_message = "Por favor, selecciona un género válido ('hombre' o 'mujer')."
+                return render_template("calculadoraPCI.html", error_message=error_message)
+
+            return render_template("calculadoraPCI.html", pci_result=pci)
+        
+        except ValueError:
+            error_message = "Por favor, ingresa valores válidos para el peso y la estatura."
+            return render_template("calculadoraPCI.html", error_message=error_message)
+    
     return render_template("calculadoraPCI.html")
 
 @app.route("/calculadoraMACRO", methods=["GET", "POST"])
