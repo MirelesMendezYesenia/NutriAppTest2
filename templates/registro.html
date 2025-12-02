@@ -20,7 +20,7 @@
         </div>
 
         <form method="POST" action="{{ url_for('registrame') }}" class="formulario-registro">
-            <input type="text" class="form-control mb-3" name="nombreCompleto" placeholder="Nombre completo" required value="{{ request.form.get('nombreCompleto', '') }}"/>
+            <input type="text" class="form-control mb-3" name="nombre" placeholder="Nombre" required value="{{ request.form.get('nombreCompleto', '') }}"/>
             <input type="text" class="form-control mb-3" name="apellido_paterno" placeholder="Apellido paterno" required/>
             <input type="text" class="form-control mb-3" name="apellido_materno" placeholder="Apellido materno"/>
             <input type="date" class="form-control mb-3" name="fecha_nacimiento" required/>
