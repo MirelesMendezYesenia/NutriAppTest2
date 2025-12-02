@@ -121,7 +121,7 @@ def registrame():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if 'usuario_id' in session:
-        return redirect(url_for("dashboard"))
+        return redirect(url_for("index"))
 
     if request.method == "POST":
         email = request.form.get("email", "").strip()
@@ -143,19 +143,13 @@ def login():
             session["usuario_email"] = usuario["email"]
 
             flash("Inicio de sesión exitoso", "success")
-            return redirect(url_for("dashboard"))
+            return redirect(url_for("index"))
         else:
             flash("Contraseña incorrecta", "error")
             return render_template("login.html")
 
     return render_template("login.html")
 
-@app.route("/dashboard")
-def dashboard():
-    if "usuario_id" not in session:
-        return redirect(url_for("login"))
-
-    return render_template("dashboard.html")
 
 
 @app.route("/logout")

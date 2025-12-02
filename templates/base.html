@@ -30,14 +30,13 @@
                         <a class="nav-link" href="/registro">Registro</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/login">
-                            {%if not session.get("usuario_nombre")%}
-                            Iniciar Sesion
-                            {% else%}
-                            cerrar Session
-                            {% endif  %}
-                        </a>
+                    {% if not session.get('usuario_id') %}
+                        <a class="nav-link" href="{{ url_for('login') }}">Iniciar sesión</a>
+                    {% else %}
+                        <a class="nav-link" href="{{ url_for('logout') }}">Cerrar sesión</a>
+                    {% endif %}
                     </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="/calculadoraGCT">GCT </a>
                     </li>
