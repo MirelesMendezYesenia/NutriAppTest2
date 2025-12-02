@@ -113,7 +113,7 @@ def registrame():
 
     if registrar_usuario(nombre, ap_paterno, ap_materno, email, password):
         flash("Registro exitoso", "success")
-        return redirect(url_for("login"))
+        return redirect(url_for("index"))
     else:
         flash("El correo ya está registrado", "error")
         return redirect(url_for("registro"))
